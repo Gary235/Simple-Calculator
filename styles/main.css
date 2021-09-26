@@ -58,7 +58,7 @@ body {
 
 .button {
   border: none;
-  border-radius: 0.25em;
+  border-radius: 0.25rem;
   color: #5e2129;
   background: #efe9ea;
 
@@ -96,6 +96,8 @@ body {
   width: auto;
   background: #ab2330;
   color: #fff;
+  font-weight: 600;
+  font-size: 1.25em;
 }
 
 .numbers > button:last-child:hover {

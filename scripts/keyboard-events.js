@@ -29,6 +29,9 @@ const keyListener = (e) => {
     case "Enter":
       document.querySelector("#equals").click();
       break;
+    case "c":
+      document.querySelector("#clear").click();
+      break;
 
     default:
       break;
