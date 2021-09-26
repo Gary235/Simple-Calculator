@@ -17,11 +17,10 @@ const ecuationsParsed = historyOfEcuations
   if (ecuationsParsed) {
     ecuationsParsed.forEach((ecuation) => {
       const historyElement = document.createElement("li");
+      historyElement.classList.add("history-item");
       historyElement.innerHTML = `
-        <div class="history-item">
-          <p class="history-ecuation">${ecuation.ecuation}</p> <strong class="history-result">${ecuation.result}</strong>
-        </div>
-        `;
+        <p class="history-ecuation">${ecuation.ecuation}</p> <strong class="history-result">${ecuation.result}</strong>
+      `;
       history.appendChild(historyElement);
     });
   }
@@ -34,13 +33,17 @@ const checkDisplay = () => {
     display.style.fontSize = "2.5em";
   }
 
-  if (display.innerHTML.length >= 25) {
+  if (display.innerHTML.length % 20 === 0) {
     display.innerHTML += "\n";
   }
 };
 
 const onClickNumber = (e) => {
-  if (e.target.tagName === "BUTTON" && e.target.id !== "equals") {
+  if (
+    e.target.tagName === "BUTTON" &&
+    e.target.id !== "equals" &&
+    display.innerHTML.length < 40
+  ) {
     if (display.innerHTML === "0")
       display.innerHTML = e.target.id.split("-")[1];
     else display.innerHTML += e.target.id.split("-")[1];

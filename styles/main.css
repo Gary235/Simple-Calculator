@@ -9,7 +9,7 @@ body {
   background: #f8f9fa;
   height: 100vh;
   display: grid;
-  grid-template-columns: 25em 10em;
+  grid-template-columns: 25em 15em;
   place-content: center;
   margin: auto;
   grid-template-areas: none;
@@ -117,7 +117,7 @@ body {
   list-style: none;
   align-self: flex-end;
   grid-area: auto;
-  height: 30em;
+  height: 27em;
   overflow-y: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -138,6 +138,7 @@ body {
   margin: 0 0 1.5em;
   border-radius: 0.25rem;
   letter-spacing: -1px;
+  width: 100%;
 }
 
 .history-result {
@@ -153,7 +154,7 @@ body {
   display: none;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 750px) {
   body {
     place-content: end center;
     grid-template-columns: none;
@@ -173,6 +174,7 @@ body {
     margin-bottom: 2em;
     height: 15em;
     overflow: scroll;
+    justify-content: flex-end;
   }
 
   .buttons {
