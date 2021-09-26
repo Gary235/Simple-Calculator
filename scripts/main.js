@@ -19,8 +19,9 @@ const checkDisplay = () => {
 
 const onClickNumber = (e) => {
   if (e.target.tagName === "BUTTON" && e.target.id !== "equals") {
-    if (display.innerHTML === "0") display.innerHTML = e.target.id;
-    else display.innerHTML += e.target.id;
+    if (display.innerHTML === "0")
+      display.innerHTML = e.target.id.split("-")[1];
+    else display.innerHTML += e.target.id.split("-")[1];
   }
 
   checkDisplay();
