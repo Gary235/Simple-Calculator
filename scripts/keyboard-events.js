@@ -30,6 +30,7 @@ const keyListener = (e) => {
       document.querySelector("#equals").click();
       break;
     case "c":
+    case " ":
       document.querySelector("#clear").click();
       break;
 
