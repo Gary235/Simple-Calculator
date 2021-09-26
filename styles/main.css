@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+body {
+  background: #f8f9fa;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  margin: auto;
+}
+
+.calculator {
+  width: fit-content;
+  max-width: 21em;
+}
+
+.display {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#display-txt {
+  color: #5e2129;
+  letter-spacing: -0.5px;
+  line-height: 1.75;
+  font-size: 2.5em;
+}
+
+#clear {
+  border-radius: 0.25em;
+  color: #5e2129;
+  background: #efe9ea;
+  aspect-ratio: 2 / 1;
+  display: flex;
+  padding: 0.4em;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 3em;
+  transition: background 0.2s;
+  user-select: none;
+}
+
+.buttons {
+  display: flex;
+  gap: 0 1em;
+}
+
+.numbers,
+.operations {
+  margin: 1em 0;
+}
+
+.button {
+  border: none;
+  border-radius: 0.25em;
+  color: #5e2129;
+  background: #efe9ea;
+
+  transition: background 0.2s;
+  padding: 0.3em 0.7em;
+  cursor: pointer;
+  user-select: none;
+}
+
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 5em);
+  grid-template-rows: repeat(4, 5em);
+  gap: 1em;
+  place-content: center left;
+}
+
+.operations {
+  display: grid;
+  grid-template-columns: 3em;
+  grid-template-rows: repeat(4, 5em);
+  gap: 0.5em 0;
+  align-items: stretch;
+  align-content: space-between;
+}
+
+.button:hover,
+#clear:hover {
+  background: #dfd3d4;
+}
+
+.equal-btn {
+  grid-column: 2 / 4;
+  aspect-ratio: inherit;
+  width: auto;
+  background: #ab2330;
+  color: #fff;
+}
+
+.numbers > button:last-child:hover {
+  background: #891c26;
+}
+
+@media screen and (max-width: 375px) {
+  .calculator {
+    max-width: 17em;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .operations {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .op-btn {
+    width: 4.25em;
+    aspect-ratio: 2 / 1;
+  }
+
+  .button:hover,
+  #clear:hover {
+    background: #efe9ea;
+  }
+}
