@@ -9,13 +9,16 @@ body {
   background: #f8f9fa;
   height: 100vh;
   display: grid;
+  grid-template-columns: 25em 10em;
   place-content: center;
   margin: auto;
+  grid-template-areas: none;
 }
 
 .calculator {
   width: fit-content;
   max-width: 21em;
+  grid-area: auto;
 }
 
 .display {
@@ -59,7 +62,7 @@ body {
 
 .numbers,
 .operations {
-  margin: 1em 0;
+  margin: 1em 0 0;
 }
 
 .button {
@@ -110,13 +113,66 @@ body {
   background: #891c26;
 }
 
+.history {
+  list-style: none;
+  align-self: flex-end;
+  grid-area: auto;
+  height: 30em;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.history::-webkit-scrollbar {
+  display: none;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 0.5em;
+  color: #5e2129;
+  background: #efe9ea;
+  padding: 0.5em 1em;
+  margin: 0 0 1.5em;
+  border-radius: 0.25rem;
+  letter-spacing: -1px;
+}
+
+.history-result {
+  font-size: 1.5em;
+}
+
+.history-ecuation {
+  font-size: 0.9em;
+  text-overflow: ellipsis;
+}
+
+.hidden {
+  display: none;
+}
+
 @media screen and (max-width: 375px) {
   body {
     place-content: end center;
+    grid-template-columns: none;
+    grid-template-areas:
+      "history"
+      "calculator";
   }
 
   .calculator {
     max-width: 17em;
+    grid-area: calculator;
+    margin-bottom: 1em;
+  }
+
+  .history {
+    grid-area: history;
+    margin-bottom: 2em;
+    height: 15em;
+    overflow: scroll;
   }
 
   .buttons {

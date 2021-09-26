@@ -2,9 +2,30 @@ const numbers = document.querySelector(".numbers");
 const operations = document.querySelector(".operations");
 
 const display = document.querySelector("#display-txt");
+const history = document.querySelector(".history");
+
 const clear = document.querySelector("#clear");
 const erase = document.querySelector("#individual-erase");
 const equalsBtn = document.querySelector("#equals");
+
+const historyOfEcuations = window.localStorage.getItem("history_of_ecuations");
+const ecuationsParsed = historyOfEcuations
+  ? JSON.parse(historyOfEcuations)
+  : [];
+
+(() => {
+  if (ecuationsParsed) {
+    ecuationsParsed.forEach((ecuation) => {
+      const historyElement = document.createElement("li");
+      historyElement.innerHTML = `
+        <div class="history-item">
+          <p class="history-ecuation">${ecuation.ecuation}</p> <strong class="history-result">${ecuation.result}</strong>
+        </div>
+        `;
+      history.appendChild(historyElement);
+    });
+  }
+})();
 
 const checkDisplay = () => {
   if (display.innerHTML.length >= 9) {
@@ -54,10 +75,37 @@ const onErase = () => {
 
 const onClickEquals = () => {
   try {
-    display.innerHTML = eval(display.innerHTML);
+    const ecuation = display.innerHTML;
+    const result = eval(ecuation);
+
+    if (ecuation.match(/[+\-*/]/g)) {
+      addToHistory({
+        ecuation,
+        result: result.toString().includes(".") ? result.toFixed(2) : result,
+      });
+
+      display.innerHTML = result;
+    }
   } catch (error) {
     display.innerHTML = error.message;
   }
+};
+
+const addToHistory = (item) => {
+  ecuationsParsed.push(item);
+  window.localStorage.setItem(
+    "history_of_ecuations",
+    JSON.stringify(ecuationsParsed)
+  );
+
+  const historyElement = document.createElement("li");
+  historyElement.innerHTML = `
+    <div class="history-item">
+      <p class="history-ecuation">${item.ecuation}</p> <strong class="history-result">${item.result}</strong>
+    </div>
+    `;
+
+  history.appendChild(historyElement);
 };
 
 numbers.addEventListener("click", onClickNumber);
