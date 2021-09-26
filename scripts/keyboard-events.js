@@ -33,10 +33,17 @@ const keyListener = (e) => {
     case " ":
       document.querySelector("#clear").click();
       break;
+    case "Backspace":
+      document.querySelector("#individual-erase").click();
+      break;
+    case ",":
+    case ".":
+      document.querySelector("#comma").click();
+      break;
 
     default:
       break;
   }
 };
 
-window.addEventListener("keypress", keyListener);
+window.addEventListener("keydown", keyListener);
