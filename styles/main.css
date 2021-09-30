@@ -114,6 +114,7 @@ body {
 }
 
 .history {
+  padding-right: 0.5em;
   list-style: none;
   align-self: flex-end;
   grid-area: auto;
@@ -124,7 +125,18 @@ body {
 }
 
 .history::-webkit-scrollbar {
-  display: none;
+  width: 0.3em;
+}
+
+.history::-webkit-scrollbar-track {
+  background: #5e21292d;
+  margin-block: 0.5em;
+  border-radius: 100vh;
+}
+
+.history::-webkit-scrollbar-thumb {
+  background: #55282e;
+  border-radius: 100vh;
 }
 
 .history-item {
