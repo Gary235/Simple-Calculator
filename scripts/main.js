@@ -83,6 +83,7 @@ const onClickEquals = () => {
   try {
     const ecuation = display.innerHTML;
     const result = eval(ecuation);
+    if (Number.isNaN(result)) throw new Error();
 
     if (ecuation.match(/[+\-*/]/g)) {
       addToHistory({
@@ -92,8 +93,8 @@ const onClickEquals = () => {
 
       display.innerHTML = result;
     }
-  } catch (error) {
-    display.innerHTML = error.message;
+  } catch (e) {
+    display.innerHTML = "Error";
   }
 };
 

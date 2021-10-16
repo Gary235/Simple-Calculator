@@ -172,10 +172,11 @@ body {
 
 .history-result {
   font-size: 1.5em;
-  max-width: 3.5em;
+  max-width: 4em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding: 0 0 0 0.25em;
 }
 
 .history-ecuation {
@@ -184,6 +185,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding: 0 0.25em 0 0;
 }
 
 .hidden {
