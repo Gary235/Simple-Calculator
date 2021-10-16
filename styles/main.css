@@ -120,8 +120,8 @@ body {
   grid-area: auto;
   height: 27em;
   overflow-y: scroll;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .history::-webkit-scrollbar {
@@ -140,6 +140,22 @@ body {
   border-radius: 100vh;
 }
 
+.delete-history {
+  color: #5e2129;
+  border: 1px solid #5e2129;
+  padding: 0.5em 1em;
+  margin: 0 0 2em;
+  border-radius: 0.25rem;
+  text-align: center;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-history:hover {
+  background: #ececec;
+}
+
 .history-item {
   display: flex;
   justify-content: space-between;
@@ -148,7 +164,7 @@ body {
   color: #5e2129;
   background: #efe9ea;
   padding: 0.5em 1em;
-  margin: 0 0 1.5em;
+  margin: 0 0 1em;
   border-radius: 0.25rem;
   letter-spacing: -1px;
   width: 100%;
@@ -156,11 +172,18 @@ body {
 
 .history-result {
   font-size: 1.5em;
+  max-width: 3.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .history-ecuation {
   font-size: 0.9em;
+  max-width: 6em;
+  overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .hidden {
@@ -184,8 +207,8 @@ body {
 
   .history {
     grid-area: history;
-    margin-bottom: 2em;
-    height: 15em;
+    margin-top: 2em;
+    height: -webkit-fill-available;
     overflow: scroll;
     justify-content: flex-end;
   }

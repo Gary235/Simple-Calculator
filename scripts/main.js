@@ -7,6 +7,7 @@ const history = document.querySelector(".history");
 const clear = document.querySelector("#clear");
 const erase = document.querySelector("#individual-erase");
 const equalsBtn = document.querySelector("#equals");
+const deleteHistoryBtn = document.querySelector(".delete-history");
 
 const historyOfEcuations = window.localStorage.getItem("history_of_ecuations");
 const ecuationsParsed = historyOfEcuations
@@ -69,11 +70,13 @@ const onClear = () => {
 const onErase = () => {
   if (display.innerHTML.length === 1) {
     display.innerHTML = "0";
-  } else {
-    const displayValue = display.innerHTML.split("");
-    displayValue.pop();
-    display.innerHTML = displayValue.join("");
+    return;
   }
+  const displayValue = display.innerHTML.split("");
+  displayValue.pop();
+  displayValue[displayValue.length - 1] === " " && displayValue.pop();
+
+  display.innerHTML = displayValue.join("");
 };
 
 const onClickEquals = () => {
@@ -106,9 +109,18 @@ const addToHistory = (item) => {
     <div class="history-item">
       <p class="history-ecuation">${item.ecuation}</p> <strong class="history-result">${item.result}</strong>
     </div>
-    `;
+  `;
 
   history.appendChild(historyElement);
+};
+
+const deleteHistory = () => {
+  ecuationsParsed.length = 0;
+  window.localStorage.setItem("history_of_ecuations", JSON.stringify([]));
+
+  document.querySelectorAll(".history-item").forEach((item) => {
+    item.remove();
+  });
 };
 
 numbers.addEventListener("click", onClickNumber);
@@ -117,3 +129,4 @@ operations.addEventListener("click", onClickOperation);
 clear.addEventListener("click", onClear);
 erase.addEventListener("click", onErase);
 equalsBtn.addEventListener("click", onClickEquals);
+deleteHistoryBtn.addEventListener("click", deleteHistory);

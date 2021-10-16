@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Calculator</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="./styles/main.css" />
   </head>
@@ -17,8 +20,10 @@
       <div class="display">
         <h1 id="display-txt">0</h1>
         <div class="display-btns">
-          <span id="individual-erase" class="display-btn">x</span>
-          <span id="clear" class="display-btn">cc</span>
+          <span id="individual-erase" class="display-btn" aria-label="backspace"
+            >x</span
+          >
+          <span id="clear" class="display-btn" aria-label="clear">cc</span>
         </div>
       </div>
 
@@ -47,7 +52,9 @@
       </div>
     </main>
 
-    <ul class="history"></ul>
+    <ul class="history">
+      <li class="delete-history">delete history</li>
+    </ul>
 
     <script src="./scripts/main.js"></script>
     <script src="./scripts/keyboard-events.js"></script>
